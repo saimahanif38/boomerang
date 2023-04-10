@@ -2,4 +2,5 @@
 /shelf/
 /workspace.xml
 /*.jar
-/.idea/libraries/
+/.idea/
+*/.idea/compiler.xml
