@@ -17,10 +17,10 @@
 
         <protocol>http</protocol>
         <!-- title of the document -->
-        <documentTitle>Test Report - Dealer Portal</documentTitle>
+        <documentTitle>Test Report - Boomerang</documentTitle>
         <!-- report name - displayed at top-nav -->
 
-        <reportName>Dealer Portal - Automation Report</reportName>
+        <reportName>Boomerang - Automation Report</reportName>
         <!-- location of charts in the test view -->
 
         <!-- top, bottom -->
