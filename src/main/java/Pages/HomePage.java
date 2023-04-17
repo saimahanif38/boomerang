@@ -13,17 +13,19 @@ import java.util.List;
 public class HomePage extends BaseTests {
     WebDriverWait wait;
 
-    private final By userEmail = By.className("android.widget.TextView");
+    private final By userEmail = By.xpath("(//*[@class=\"android.widget.TextView\"])[1]");
+
+    public String userEmailString = null;
 
     public HomePage() {
         PageFactory.initElements(driver, this);
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
     }
 
-    public void getUserEmail(){
+    public String getUserEmail(){
         waitForElementPresent(userEmail);
-        List<WebElement> t = driver.findElements(userEmail);
-        System.out.println("print");
+        userEmailString = driver.findElement(userEmail).getText();
+        return userEmailString;
     }
 
 

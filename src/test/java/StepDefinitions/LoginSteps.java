@@ -9,12 +9,17 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
 public class LoginSteps extends BaseTests {
 
     protected LoginPage loginPage;
     protected WelcomePage welcomePage;
 
     protected HomePage homePage;
+
+    public String userEmail = null;
 
     @Given("Getting started with mobile app")
     public void setUp()
@@ -50,11 +55,13 @@ public class LoginSteps extends BaseTests {
         }
     }
 
-    @Then("Validate user is logged in boomerang")
-    public void validateUser(){
+    @Then("Validate user {string} is logged in boomerang")
+    public void validateUser(String userEmailExpected){
         try{
             homePage = new HomePage();
-            homePage.getUserEmail();
+            userEmail = homePage.getUserEmail();
+            assertEquals(userEmail, userEmailExpected,
+                    "Correct User is not logged in!");
         }
         catch (Exception exp) {
             System.out.println(exp);
