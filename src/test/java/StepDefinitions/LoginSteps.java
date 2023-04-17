@@ -1,26 +1,23 @@
 package StepDefinitions;
 
+import Pages.HomePage;
 import Pages.LoginPage;
+import Pages.WelcomePage;
 import Util.BaseTests;
-import io.appium.java_client.AppiumBy;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
 
 public class LoginSteps extends BaseTests {
 
     protected LoginPage loginPage;
+    protected WelcomePage welcomePage;
 
-    protected String projectpath = System.getProperty("user.dir");
+    protected HomePage homePage;
 
-    protected String hostName = "", username ="", password="";
-
-    protected String path = projectpath + "/resources/";
-
-
-    @Given("user is on the mobile login page")
-    public void atHomePage()
+    @Given("Getting started with mobile app")
+    public void setUp()
     {
         try{
             BaseTests.setup();
@@ -30,48 +27,38 @@ public class LoginSteps extends BaseTests {
             System.out.println(exp);
         }
     }
-    @When("Login with valid credentials")
-    public void login_with_valid_credentials() throws InterruptedException {
-        // Write code here that turns the phrase above into concrete actions
-        loginPage = new LoginPage();
-        loginPage.setUsernameAndPassword(username, password);
+    @When("Login with valid credentials {string} and {string} using outlook")
+    public void loginWithValidCredentials(String username, String password){
+        try{
+            loginPage = new LoginPage();
+            loginPage.loginUsingOutlook(username, password);
+        }
+        catch (Exception exp) {
+            System.out.println(exp);
+        }
     }
-    @Then("Validate user is logged in")
-    public void validate_user_is_logged_in() throws InterruptedException {
-        // Write code here that turns the phrase above into concrete actions
-        click_next();
-        Thread.sleep(2000);
-        driver.findElement(By.xpath("//android.widget.ImageButton[@content-desc=\"Navigate up\"]")).click();
-        Thread.sleep(2000);
-        //For scroll down
-        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).index(0)).scrollIntoView(new UiSelector().resourceId(\"com.baydin.boomerang:id/drawer_feedback\"))")).click(); //scroll down to the element and click
+    @And("Complete Welcome Screen steps")
+    public void movingFromWelcomeScreen(){
+        try{
+            welcomePage = new WelcomePage();
+            welcomePage.clickNextButton();
+            welcomePage.clickFinishButton();
+            welcomePage.clickSaveThemeButton();
+        }
+        catch (Exception exp) {
+            System.out.println(exp);
+        }
     }
 
-
-    public static void click_next() throws InterruptedException {
-        //click on next eight times then click on Finish
-        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.view.ViewGroup/androidx.appcompat.widget.LinearLayoutCompat/android.widget.TextView[2]")).click();
-
-        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.view.ViewGroup/androidx.appcompat.widget.LinearLayoutCompat/android.widget.TextView[2]")).click();
-
-        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.view.ViewGroup/androidx.appcompat.widget.LinearLayoutCompat/android.widget.TextView[2]")).click();
-
-        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.view.ViewGroup/androidx.appcompat.widget.LinearLayoutCompat/android.widget.TextView[2]")).click();
-
-        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.view.ViewGroup/androidx.appcompat.widget.LinearLayoutCompat/android.widget.TextView[2]")).click();
-
-        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.view.ViewGroup/androidx.appcompat.widget.LinearLayoutCompat/android.widget.TextView[2]")).click();
-
-        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.view.ViewGroup/androidx.appcompat.widget.LinearLayoutCompat/android.widget.TextView[2]")).click();
-
-        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.view.ViewGroup/androidx.appcompat.widget.LinearLayoutCompat/android.widget.TextView[2]")).click();
-
-        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.view.ViewGroup/androidx.appcompat.widget.LinearLayoutCompat/android.widget.TextView[2]")).click();
-
-        Thread.sleep(2000);
-        //Save the theme
-        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.Button[2]")).click();
-        Thread.sleep(2000);
+    @Then("Validate user is logged in boomerang")
+    public void validateUser(){
+        try{
+            homePage = new HomePage();
+            homePage.getUserEmail();
+        }
+        catch (Exception exp) {
+            System.out.println(exp);
+        }
     }
 
 }
