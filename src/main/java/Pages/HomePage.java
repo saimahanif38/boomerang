@@ -1,14 +1,11 @@
 package Pages;
 
 import Util.BaseTests;
-import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.List;
 
 public class HomePage extends BaseTests {
     WebDriverWait wait;

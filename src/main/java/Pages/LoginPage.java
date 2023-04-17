@@ -42,35 +42,4 @@ public class LoginPage extends BaseTests {
         driver.findElement(staySignedinYesbutton).click();
         Thread.sleep(6000);
     }
-
-//    public void setUsernameAndPassword(String username, String password) throws InterruptedException {
-    //        WebElement gmail = driver.findElement(By.id("com.baydin.boomerang:id/account_selector_gmail"));
-//        gmail.click();
-//        Thread.sleep(6000);
-//        driver.findElement(By.className("android.widget.EditText")).sendKeys("bmrngemail@gmail.com");
-//        WebElement continue_button = driver.findElement(By.id("com.baydin.boomerang:id/accountEmailAddressSubmit"));
-//        continue_button.click();
-//        Thread.sleep(9000);
-//
-//
-//        //enter Password
-//        driver.findElement(By.xpath("(//*[@class=\"android.widget.Button\"])[2]")).click();
-//        Thread.sleep(6000);
-////        driver.findElement(By.className("android.widget.EditText")).sendKeys("losshello2@gmail.com");
-////        driver.findElement(By.xpath("(//*[@class=\"android.widget.Button\"])[1]")).click();
-////        Thread.sleep(9000);
-//        driver.findElement(By.className("android.widget.EditText")).sendKeys("bmrngemail@gmail.com");
-////        driver.findElement(By.className("android.widget.CheckBox")).click();
-////        Thread.sleep(3000);
-//        driver.findElement(By.xpath("(//*[@class=\"android.widget.Button\"])[1]")).click();
-//      Thread.sleep(6000);
-//      driver.findElement(By.xpath("(//*[@class=\"android.widget.EditText\"])[1]")).sendKeys("boomerang");
-//        driver.findElement(By.xpath("(//*[@class=\"android.widget.EditText\"])[2]")).sendKeys("email");
-//        driver.findElement(By.xpath("(//*[@class=\"android.widget.Button\"])[1]")).click();
-//
-//        Thread.sleep(6000);
-//
-////        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView/android.view.View[2]/android.view.View[5]/android.view.View")).click();
-//      Thread.sleep(10000);
-//    }
 }

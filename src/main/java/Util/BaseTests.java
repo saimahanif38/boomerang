@@ -24,8 +24,6 @@ public class BaseTests {
         cap.setCapability("deviceName", "emulator-5554");
         cap.setCapability("appPackage","com.baydin.boomerang");
         cap.setCapability("app","C:/Users/saimahanif/Downloads/boomerangandroid-prod-release.apk");
-
-//        cap.setCapability("appActivity","com.baydin.boomerang.AccountTypeSelectorActivity");
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
         driver = new AppiumDriver(url, cap);
     }
@@ -48,7 +46,7 @@ public class BaseTests {
         cap.setCapability("fullReset", "true");
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
     }
-//    public static void tearDown() {
-//        driver.quit();
-//    }
+    public static void tearDown() {
+        driver.quit();
+    }
 }
