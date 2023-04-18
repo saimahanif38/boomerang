@@ -18,17 +18,21 @@ public class WelcomePage extends BaseTests {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
     }
 
-    public void clickNextButton() {
+    public void clickNextButton() throws InterruptedException {
+        waitForElementPresent(nextButton);
+        driver.findElement(nextButton).click();
+        Thread.sleep(1000);
+        waitForElementPresent(nextButton);
+        driver.findElement(nextButton).click();
+        Thread.sleep(1000);
+        waitForElementPresent(nextButton);
+        driver.findElement(nextButton).click();
+        Thread.sleep(1000);
         waitForElementPresent(nextButton);
         driver.findElement(nextButton).click();
         waitForElementPresent(nextButton);
         driver.findElement(nextButton).click();
-        waitForElementPresent(nextButton);
-        driver.findElement(nextButton).click();
-        waitForElementPresent(nextButton);
-        driver.findElement(nextButton).click();
-        waitForElementPresent(nextButton);
-        driver.findElement(nextButton).click();
+        Thread.sleep(1000);
         waitForElementPresent(nextButton);
         driver.findElement(nextButton).click();
         waitForElementPresent(nextButton);
