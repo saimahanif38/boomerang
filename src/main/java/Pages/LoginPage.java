@@ -15,7 +15,6 @@ public class LoginPage extends BaseTests {
     private final By outlookNextButton = By.xpath("(//*[@class=\"android.widget.Button\"])[2]");
     private final By outlookEmailInputField = By.className("android.widget.EditText");
     private final By outlookPasswordInputField = By.className("android.widget.EditText");
-
     private final By staySignedinYesbutton = By.xpath("(//*[@class=\"android.widget.Button\"])[2]");
 
     WebDriverWait wait;
