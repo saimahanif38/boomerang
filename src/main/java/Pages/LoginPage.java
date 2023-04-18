@@ -15,7 +15,6 @@ public class LoginPage extends BaseTests {
     private final By outlookNextButton = By.xpath("(//*[@class=\"android.widget.Button\"])[2]");
     private final By outlookEmailInputField = By.className("android.widget.EditText");
     private final By outlookPasswordInputField = By.className("android.widget.EditText");
-
     private final By staySignedinYesbutton = By.xpath("(//*[@class=\"android.widget.Button\"])[2]");
 
     WebDriverWait wait;
@@ -32,14 +31,13 @@ public class LoginPage extends BaseTests {
         driver.findElement(outlookEmailInputField).sendKeys(username);
         waitForElementPresent(outlookNextButton);
         driver.findElement(outlookNextButton).click();
-        Thread.sleep(1000);
+        Thread.sleep(3000);
         waitForElementPresent(outlookPasswordInputField);
         driver.findElement(outlookPasswordInputField).sendKeys(password);
         waitForElementPresent(outlookSigninbutton);
         driver.findElement(outlookSigninbutton).click();
-        Thread.sleep(1000);
         waitForElementPresent(staySignedinYesbutton);
         driver.findElement(staySignedinYesbutton).click();
-        Thread.sleep(6000);
+        Thread.sleep(2000);
     }
 }

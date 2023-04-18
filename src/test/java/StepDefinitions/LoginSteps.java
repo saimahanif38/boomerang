@@ -13,56 +13,50 @@ import static org.testng.Assert.assertEquals;
 
 public class LoginSteps extends BaseTests {
 
+    public String userEmail = null;
     protected LoginPage loginPage;
     protected WelcomePage welcomePage;
-
     protected HomePage homePage;
 
-    public String userEmail = null;
-
     @Given("Getting started with mobile app")
-    public void setUp()
-    {
-        try{
+    public void setUp() {
+        try {
             BaseTests.setup();
-            Thread.sleep(3000);
-        }
-        catch (Exception exp){
+        } catch (Exception exp) {
             System.out.println(exp);
         }
     }
-    @When("Login with valid credentials {string} and {string} using outlook")
-    public void loginWithValidCredentials(String username, String password){
-        try{
+
+    @When("Login with valid credentials Outlook")
+    public void loginWithValidCredentials() {
+        try {
+            BaseTests.setEmailAndPassword();
             loginPage = new LoginPage();
-            loginPage.loginUsingOutlook(username, password);
-        }
-        catch (Exception exp) {
+            loginPage.loginUsingOutlook(BaseTests.email, BaseTests.password);
+        } catch (Exception exp) {
             System.out.println(exp);
         }
     }
+
     @And("Complete Welcome Screen steps")
-    public void movingFromWelcomeScreen(){
-        try{
+    public void movingFromWelcomeScreen() {
+        try {
             welcomePage = new WelcomePage();
             welcomePage.clickNextButton();
             welcomePage.clickFinishButton();
             welcomePage.clickSaveThemeButton();
-        }
-        catch (Exception exp) {
+        } catch (Exception exp) {
             System.out.println(exp);
         }
     }
 
-    @Then("Validate user {string} is logged in boomerang")
-    public void validateUser(String userEmailExpected){
-        try{
+    @Then("Validate user Email is logged in boomerang")
+    public void validateUser() {
+        try {
             homePage = new HomePage();
             userEmail = homePage.getUserEmail();
-            assertEquals(userEmail, userEmailExpected,
-                    "Correct User is not logged in!");
-        }
-        catch (Exception exp) {
+            assertEquals(userEmail, BaseTests.email, "Correct User is not logged in!");
+        } catch (Exception exp) {
             System.out.println(exp);
         }
     }
