@@ -28,11 +28,12 @@ public class LoginSteps extends BaseTests {
         }
     }
 
-    @When("Login with valid credentials {string} and {string} using outlook")
-    public void loginWithValidCredentials(String username, String password) {
+    @When("Login with valid credentials Outlook")
+    public void loginWithValidCredentials() {
         try {
+            BaseTests.setEmailAndPassword();
             loginPage = new LoginPage();
-            loginPage.loginUsingOutlook(username, password);
+            loginPage.loginUsingOutlook(BaseTests.email, BaseTests.password);
         } catch (Exception exp) {
             System.out.println(exp);
         }
@@ -50,12 +51,12 @@ public class LoginSteps extends BaseTests {
         }
     }
 
-    @Then("Validate user {string} is logged in boomerang")
-    public void validateUser(String userEmailExpected) {
+    @Then("Validate user Email is logged in boomerang")
+    public void validateUser() {
         try {
             homePage = new HomePage();
             userEmail = homePage.getUserEmail();
-            assertEquals(userEmail, userEmailExpected, "Correct User is not logged in!");
+            assertEquals(userEmail, BaseTests.email, "Correct User is not logged in!");
         } catch (Exception exp) {
             System.out.println(exp);
         }
