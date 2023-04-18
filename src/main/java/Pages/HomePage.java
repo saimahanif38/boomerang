@@ -12,6 +12,9 @@ public class HomePage extends BaseTests {
 
     private final By userEmail = By.xpath("(//*[@class=\"android.widget.TextView\"])[1]");
 
+    private final By menuButton = (By.xpath("//android.widget.ImageButton[@content-desc='Navigate up']"));
+
+
     public String userEmailString = null;
 
     public HomePage() {
@@ -23,6 +26,10 @@ public class HomePage extends BaseTests {
         waitForElementPresent(userEmail);
         userEmailString = driver.findElement(userEmail).getText();
         return userEmailString;
+    }
+
+    public void clickOnMenuButton(){
+        driver.findElement(menuButton).click();
     }
 
 
