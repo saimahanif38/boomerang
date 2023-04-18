@@ -22,7 +22,6 @@ public class LoginSteps extends BaseTests {
     public void setUp() {
         try {
             BaseTests.setup();
-            Thread.sleep(3000);
         } catch (Exception exp) {
             System.out.println(exp);
         }
