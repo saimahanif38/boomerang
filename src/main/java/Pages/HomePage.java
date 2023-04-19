@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class HomePage extends BaseTests {
+    private final By hamburgerMenu = By.xpath("//android.widget.ImageButton[@content-desc=\"Navigate up\"]");
     private final By userEmail = By.xpath("(//*[@class=\"android.widget.TextView\"])[1]");
     public String userEmailString = null;
     WebDriverWait wait;
@@ -23,5 +24,9 @@ public class HomePage extends BaseTests {
         return userEmailString;
     }
 
+    public void openMenuBar() {
+        waitForElementPresent(hamburgerMenu);
+        driver.findElement(hamburgerMenu).click();
+    }
 
 }
