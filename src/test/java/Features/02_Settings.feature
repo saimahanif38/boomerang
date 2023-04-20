@@ -1,10 +1,7 @@
 Feature: Settings
 
-  Scenario Outline:  verify Theme changing from account settings
+  Scenario: Test login functionality with valid credentials using outlook
     Given Getting started with mobile app
-    When Login with valid credentials "<email>" and "<password>" using outlook
+    When Login with valid credentials Outlook
     And Complete Welcome Screen steps
     Then go to menu bar and click on setting
-    Examples:
-      | email                        | password  |
-      | saimahaniffolio3@outlook.com | recite786 |
