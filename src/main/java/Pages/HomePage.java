@@ -34,8 +34,8 @@ public class HomePage extends BaseTests {
     }
 
     public void clickOnSettingsButton(){
-        String uiAutomatorTextForSendFeedback = "new UiScrollable(new UiSelector().scrollable(true).index(0)).scrollIntoView(new UiSelector().resourceId(\"com.baydin.boomerang:id/drawer_settings\"))";
-        driver.findElement(new AppiumBy.ByAndroidUIAutomator(uiAutomatorTextForSendFeedback)).click();
+        String uiAutomatorSettingButton = "new UiScrollable(new UiSelector().scrollable(true).index(0)).scrollIntoView(new UiSelector().resourceId(\"com.baydin.boomerang:id/drawer_settings\"))";
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator(uiAutomatorSettingButton)).click();
     }
 
     public void clickOnAccountSettingsButton(){
