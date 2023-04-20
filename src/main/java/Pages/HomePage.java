@@ -14,12 +14,6 @@ public class HomePage extends BaseTests {
 
     private final By accountSettingsButton = (By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[5]/android.widget.Button[2]"));
 
-    private final By themeButton = (By.id("com.baydin.boomerang:id/settings_account_theme"));
-
-    private final By themeOptionButton = (By.xpath("(//android.widget.ImageView[@content-desc='Theme Thumbnail'])[2]"));
-
-    private final By themeSaveButton = (By.id("com.baydin.boomerang:id/settings_account_theme_confirm"));
-
     public String userEmailString = null;
     WebDriverWait wait;
 

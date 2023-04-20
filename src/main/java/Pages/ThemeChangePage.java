@@ -1,7 +1,6 @@
 package Pages;
 
 import Util.BaseTests;
-import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -15,7 +14,6 @@ public class ThemeChangePage extends BaseTests {
 
     private final By themeSaveButton = (By.id("com.baydin.boomerang:id/settings_account_theme_confirm"));
 
-    public String userEmailString = null;
     WebDriverWait wait;
 
     public ThemeChangePage() {
