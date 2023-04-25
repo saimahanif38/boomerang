@@ -1,4 +1,4 @@
-package Pages;
+package Pages.Settings.AccountSettings;
 
 import Util.BaseTests;
 import org.openqa.selenium.By;
