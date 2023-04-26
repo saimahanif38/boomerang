@@ -36,6 +36,7 @@ public class LoginPage extends BaseTests {
         driver.findElement(outlookPasswordInputField).sendKeys(password);
         waitForElementPresent(outlookSigninbutton);
         driver.findElement(outlookSigninbutton).click();
+        Thread.sleep(3000);
         waitForElementPresent(staySignedinYesbutton);
         driver.findElement(staySignedinYesbutton).click();
         Thread.sleep(2000);

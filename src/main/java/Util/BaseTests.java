@@ -47,7 +47,7 @@ public class BaseTests {
 
     public void waitForElementPresent(By locator) {
         try {
-            this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            this.wait = new WebDriverWait(driver, Duration.ofSeconds(60));
             wait.until(ExpectedConditions.presenceOfElementLocated(locator));
         } catch (Exception e) {
             System.out.println("Wait for an element" + locator.toString());

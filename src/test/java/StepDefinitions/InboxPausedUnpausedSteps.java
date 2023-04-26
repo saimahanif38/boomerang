@@ -1,9 +1,6 @@
 package StepDefinitions;
 
-import Pages.InboxPaused;
-import Pages.LoginPage;
-import Pages.MenuBar;
-import Pages.WelcomePage;
+import Pages.*;
 import Util.BaseTests;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -17,6 +14,7 @@ public class InboxPausedUnpausedSteps {
     protected WelcomePage welcomePage;
     protected MenuBar menuBar;
     protected InboxPaused inboxPaused;
+    protected HomePage homePage;
 
     @When("Login with valid credentials using outlook")
     public void loginWithValidCredentials() {
@@ -37,8 +35,9 @@ public class InboxPausedUnpausedSteps {
     @And("Go to the menu bar and inbox pause")
     public void goToMenuBar() {
         try {
+            homePage = new HomePage();
+            homePage.clickOnMenuButton();
             menuBar = new MenuBar();
-            menuBar.openMenuBar();
             menuBar.clickInboxPauseButton();
         } catch (Exception exp) {
             System.out.println(exp);
@@ -59,8 +58,9 @@ public class InboxPausedUnpausedSteps {
     @Then("Validate inbox is paused now")
     public void validationPausedInbox() {
         try {
+            homePage = new HomePage();
+            homePage.clickOnMenuButton();
             menuBar = new MenuBar();
-            menuBar.openMenuBar();
             menuBar.clickInboxPauseButton();
             inboxPaused = new InboxPaused();
             String verificationText = inboxPaused.getVerificationText();
@@ -83,8 +83,9 @@ public class InboxPausedUnpausedSteps {
     @Then("Validate inbox is unpause now")
     public void validateInboxIsUnpauseNow() {
         try {
+            homePage = new HomePage();
+            homePage.clickOnMenuButton();
             menuBar = new MenuBar();
-            menuBar.openMenuBar();
             menuBar.clickInboxPauseButton();
             inboxPaused = new InboxPaused();
             inboxPaused.validatePauseButtonIsVisible();
