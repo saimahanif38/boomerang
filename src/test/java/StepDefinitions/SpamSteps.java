@@ -19,7 +19,7 @@ public class SpamSteps extends BaseTests {
     @And("Open Spam box")
     public void openInbox() {
         homePage = new HomePage();
-        homePage.openMenuBar();
+        homePage.clickOnMenuButton();
         menuBar = new MenuBar();
         menuBar.clickOnSpamButton();
     }

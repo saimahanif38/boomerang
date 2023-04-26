@@ -3,7 +3,6 @@ package StepDefinitions;
 import Pages.DraftPage;
 import Pages.HomePage;
 import Pages.MenuBar;
-import Pages.SentPage;
 import Util.BaseTests;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -20,7 +19,7 @@ public class DraftSteps extends BaseTests {
     @And("Open draft box")
     public void openInbox() {
         homePage = new HomePage();
-        homePage.openMenuBar();
+        homePage.clickOnMenuButton();
         menuBar = new MenuBar();
         menuBar.clickOnDraftButton();
     }

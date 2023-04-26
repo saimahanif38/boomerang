@@ -19,7 +19,7 @@ public class SentSteps extends BaseTests {
     @And("Open sent box")
     public void openInbox() {
         homePage = new HomePage();
-        homePage.openMenuBar();
+        homePage.clickOnMenuButton();
         menuBar = new MenuBar();
         menuBar.clickOnSentButton();
     }

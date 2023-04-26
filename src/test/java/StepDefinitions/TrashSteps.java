@@ -2,7 +2,6 @@ package StepDefinitions;
 
 import Pages.HomePage;
 import Pages.MenuBar;
-import Pages.SpamPage;
 import Pages.TrashPage;
 import Util.BaseTests;
 import io.cucumber.java.en.And;
@@ -20,7 +19,7 @@ public class TrashSteps extends BaseTests {
     @And("Open Trash box")
     public void openInbox() {
         homePage = new HomePage();
-        homePage.openMenuBar();
+        homePage.clickOnMenuButton();
         menuBar = new MenuBar();
         menuBar.clickOnTrashButton();
     }

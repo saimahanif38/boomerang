@@ -15,7 +15,7 @@ public class InboxSteps extends BaseTests {
     @And("Open inbox")
     public void openInbox() {
         homePage = new HomePage();
-        homePage.openMenuBar();
+        homePage.clickOnMenuButton();
         menuBar = new MenuBar();
         menuBar.clickOnInboxButton();
     }

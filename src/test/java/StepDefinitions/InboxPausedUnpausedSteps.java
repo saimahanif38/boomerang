@@ -36,7 +36,7 @@ public class InboxPausedUnpausedSteps {
     public void goToMenuBar() {
         try {
             homePage = new HomePage();
-            homePage.openMenuBar();
+            homePage.clickOnMenuButton();
             menuBar = new MenuBar();
             menuBar.clickInboxPauseButton();
         } catch (Exception exp) {
@@ -59,7 +59,7 @@ public class InboxPausedUnpausedSteps {
     public void validationPausedInbox() {
         try {
             homePage = new HomePage();
-            homePage.openMenuBar();
+            homePage.clickOnMenuButton();
             menuBar = new MenuBar();
             menuBar.clickInboxPauseButton();
             inboxPaused = new InboxPaused();
@@ -84,7 +84,7 @@ public class InboxPausedUnpausedSteps {
     public void validateInboxIsUnpauseNow() {
         try {
             homePage = new HomePage();
-            homePage.openMenuBar();
+            homePage.clickOnMenuButton();
             menuBar = new MenuBar();
             menuBar.clickInboxPauseButton();
             inboxPaused = new InboxPaused();
