@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">Boomerang - Automation Report</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Apr 20, 2023 03:10:04 AM</span></a>
+<a href="#"><span class="badge badge-primary">Apr 25, 2023 11:40:06 AM</span></a>
 </li>
 </ul>
 </div>
@@ -61,13 +61,13 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Apr 20, 2023 03:10:04 AM</h3>
+<h3>Apr 25, 2023 11:40:06 AM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Apr 20, 2023 03:11:14 AM</h3>
+<h3>Apr 25, 2023 11:41:04 AM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -138,7 +138,7 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>4</b> steps passed</small></div>
+<div><small data-tooltip='100%'><b>5</b> steps passed</small></div>
 <div>
 <small data-tooltip='0%'><b>0</b> steps failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
@@ -157,7 +157,7 @@
 </div></div>
 <script>
 var timeline = {
-"Validating Functionality of Inbox Feature":68.954
+"Settings":57.285
 };
 </script>
 <div class="row">
@@ -169,15 +169,15 @@ var timeline = {
 <tbody>
 <tr>
 <td>AppName</td>
-<td>Boomerang</td>
+<td>DealerPortal</td>
 </tr>
 <tr>
 <td>user</td>
-<td>Saima</td>
+<td>Asad</td>
 </tr>
 <tr>
 <td>os</td>
-<td>Windows</td>
+<td>Mac</td>
 </tr>
 </tbody>
 </table></div>
@@ -199,7 +199,7 @@ warningChild: 0,
 skipChild: 0,
 infoChild: 0,
 grandChildCount: 5,
-passGrandChild: 4,
+passGrandChild: 5,
 failGrandChild: 0,
 warningGrandChild: 0,
 skipGrandChild: 0,
@@ -229,9 +229,9 @@ eventsCount: 5,
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">Validating Functionality of Inbox Feature</p>
+            <p class="name">Settings</p>
             <p class="text-sm">
-              <span>3:10:05 AM</span> / <span>00:01:08:954</span>
+              <span>11:40:07 AM</span> / <span>00:00:57:285</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -239,10 +239,10 @@ eventsCount: 5,
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">Validating Functionality of Inbox Feature</h5>
-<span class='badge badge-success'>04.20.2023 3:10:05 AM</span>
-<span class='badge badge-danger'>04.20.2023 3:11:14 AM</span>
-<span class='badge badge-default'>00:01:08:954</span>
+<h5 class="test-status text-pass">Settings</h5>
+<span class='badge badge-success'>04.25.2023 11:40:07 AM</span>
+<span class='badge badge-danger'>04.25.2023 11:41:04 AM</span>
+<span class='badge badge-default'>00:00:57:285</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
@@ -254,7 +254,7 @@ eventsCount: 5,
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>To test inbox paused functionality</div>
+        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>Test login functionality with valid credentials using outlook</div>
       </div>
     </div>
         <div class="collapse">
@@ -264,18 +264,23 @@ eventsCount: 5,
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="StepDefinitions.InboxPausedUnpausedSteps.loginWithValidCredentials()">
-                <span>When Login with valid credentials using outlook</span>
+              <div class="step pass-bg" title="StepDefinitions.LoginSteps.loginWithValidCredentials()">
+                <span>When Login with valid credentials Outlook</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="StepDefinitions.TrashSteps.openInbox()">
-                <span>And Open Trash box</span>
+              <div class="step pass-bg" title="StepDefinitions.LoginSteps.movingFromWelcomeScreen()">
+                <span>And Complete Welcome Screen steps</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="StepDefinitions.TrashSteps.validateInbox()">
-                <span>Then Validate Trash box page is open</span>
+              <div class="step pass-bg" title="StepDefinitions.ThemeChangingSteps.navigateFromSettingsToAccountSettings()">
+                <span>Then go to menu bar and click on Settings and click on Account Settings</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="StepDefinitions.ThemeChangingSteps.themeChanging()">
+                <span>Then click on the Theme button to select the Theme and save it, after selection</span>
       <div>
       </div>
               </div>
