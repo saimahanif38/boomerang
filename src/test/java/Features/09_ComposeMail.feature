@@ -5,5 +5,3 @@ Feature: Validating Functionality of Inbox Feature
     When Login with valid credentials using outlook
     And Click on compose email button and compose email screen is appeared
     Then Add text for email and add participants and validate success message
-
-

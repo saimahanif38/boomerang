@@ -5,6 +5,8 @@ import Pages.HomePage;
 import Util.BaseTests;
 import io.cucumber.java.en.*;
 
+import java.io.IOException;
+
 import static org.testng.Assert.assertEquals;
 
 public class ComposeMailSteps extends BaseTests {
@@ -23,22 +25,21 @@ public class ComposeMailSteps extends BaseTests {
         }
     }
 
-    @And("Add text for email and add participants and validate success message")
-    public void addTextForEmail() {
-        try {
+    @Then("Add text for email and add participants and validate success message")
+    public void addTextForEmail() throws IOException {
+        try{
             email = BaseTests.setReceiverEmail();
             subject = BaseTests.setSubjectOfEmail();
             emailBodyText = BaseTests.setBodyOfMail();
             composeMailPage.sendLaterButtonExists();
             composeMailPage.typeReceiverEmail(email);
             composeMailPage.typeSubjectOfEmail(subject);
-            composeMailPage.typeEmailBody(emailBodyText);
             composeMailPage.clickOnSendEmail();
             getSuccessMessage = composeMailPage.validateSucessMessage();
             assertEquals(getSuccessMessage, expectedSuccessMessage, "Success Message Validation failed!");
-        } catch (Exception exp) {
+        }
+        catch (Exception exp){
             exp.printStackTrace();
         }
     }
-
 }
