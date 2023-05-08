@@ -16,7 +16,7 @@ import java.util.Properties;
 public class BaseTests {
 
     public static AppiumDriver driver;
-    public static String email = "", password = "", receiverEmail = "", subject = "";
+    public static String email = "", password = "", receiverEmail = "", subject = "", emailBodyText="";
     protected static String projectPath = System.getProperty("user.dir");
     public static String path = projectPath + "/resources/";
     WebDriverWait wait;
@@ -55,6 +55,14 @@ public class BaseTests {
         prop.load(reader);
         subject = prop.getProperty("subjectOfEmail");
         return subject;
+    }
+
+    public static String setBodyOfMail() throws IOException {
+        FileReader reader = new FileReader(path + "email.properties");
+        Properties prop = new Properties();
+        prop.load(reader);
+        emailBodyText = prop.getProperty("emailBodyText");
+        return emailBodyText;
     }
 
     public static void tearDown() {

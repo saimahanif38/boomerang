@@ -5,47 +5,40 @@ import Pages.HomePage;
 import Util.BaseTests;
 import io.cucumber.java.en.*;
 
+import static org.testng.Assert.assertEquals;
+
 public class ComposeMailSteps extends BaseTests {
-    String email = null, subject= null;
-    protected HomePage homePage;
-    protected ComposeMailPage composeMailPage;
-    @And("Click on compose email button")
+    String email = null, subject = null, emailBodyText = null, getSuccessMessage = null, expectedSuccessMessage="Message sent.";
+    protected HomePage homePage = new HomePage();
+    protected ComposeMailPage composeMailPage = new ComposeMailPage();
+    @And("Click on compose email button and compose email screen is appeared")
     public void clickOnComposeEmail() {
         try{
-            homePage = new HomePage();
             homePage.clickOnComposeEmailButton();
             homePage.clickOnAllowContactsButton();
+            composeMailPage.sendLaterButtonExists();
         }
         catch (Exception exp){
             exp.printStackTrace();
         }
     }
 
-    @Then("Validate compose email screen is appeared")
-    public void validateInbox() {
-        try {
-            composeMailPage = new ComposeMailPage();
-            composeMailPage.sendLaterButtonExists();
-        } catch (Exception exp) {
-            exp.printStackTrace();
-        }
-    }
-
-    @And("Add text for email and add participants")
+    @And("Add text for email and add participants and validate success message")
     public void addTextForEmail() {
         try {
             email = BaseTests.setReceiverEmail();
             subject = BaseTests.setSubjectOfEmail();
-            composeMailPage = new ComposeMailPage();
+            emailBodyText = BaseTests.setBodyOfMail();
             composeMailPage.sendLaterButtonExists();
             composeMailPage.typeReceiverEmail(email);
             composeMailPage.typeSubjectOfEmail(subject);
+            composeMailPage.typeEmailBody(emailBodyText);
+            composeMailPage.clickOnSendEmail();
+            getSuccessMessage = composeMailPage.validateSucessMessage();
+            assertEquals(getSuccessMessage, expectedSuccessMessage, "Success Message Validation failed!");
         } catch (Exception exp) {
             exp.printStackTrace();
         }
     }
 
-    @Then("validate success message of email sent")
-    public void validateSuccessMessageOfEmailSent() {
-    }
 }
