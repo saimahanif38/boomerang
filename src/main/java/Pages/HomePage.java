@@ -14,6 +14,10 @@ public class HomePage extends BaseTests {
     private final By accountSettingsButton = (By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[5]/android.widget.Button[2]"));
     private final By composeEmailButton = By.id("com.baydin.boomerang:id/menu_compose");
     private final By allowContactsButton = By.id("com.android.packageinstaller:id/permission_allow_button");
+
+    private final By search_visibility = (By.id("com.baydin.boomerang:id/menu_search"));
+    private final By search_bar = (By.id("com.baydin.boomerang:id/etSearch"));
+    private final By cancel_button = (By.id("com.baydin.boomerang:id/tvCancel"));
     public String userEmailString = null;
     WebDriverWait wait;
 
@@ -52,4 +56,18 @@ public class HomePage extends BaseTests {
         waitForElementPresent(allowContactsButton);
         driver.findElement(allowContactsButton).click();
     }
+
+    public void clickAndEnterDataInSearch(){
+        waitForElementPresent(search_visibility);
+        driver.findElement(search_visibility).click();
+
+        waitForElementPresent(search_bar);
+        driver.findElement(search_bar).sendKeys("muhammadfahadhhh123@gmail.com");
+
+        waitForElementPresent(cancel_button);
+        driver.findElement(cancel_button).click();
+
+
+    }
+
 }
