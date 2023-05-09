@@ -12,9 +12,9 @@ public class MenuBar extends BaseTests {
     private final By inboxPausedButton = By.xpath("(//android.widget.ImageView[@content-desc=\"pause now\"])[1]");
     private final By inboxButton = By.xpath("(//*[@class=\"android.widget.TextView\"])[4]");
     private final By sentButton = By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/androidx.drawerlayout.widget.DrawerLayout/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.RelativeLayout[4]/android.widget.TextView");
-    private final By draftButton = By.xpath("//android.widget.TextView[@bounds='[0,1239][1050,1382]']");
-    private final By spamButton = By.xpath("//android.widget.TextView[@bounds='[0,1382][1050,1525]']");
-    private final By trashButton = By.xpath("//android.widget.TextView[@bounds='[0,1525][1050,1668]']");
+    private final By draftButton = By.xpath("//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/androidx.drawerlayout.widget.DrawerLayout/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.RelativeLayout[5]/android.widget.TextView");
+    private final By spamButton = By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/androidx.drawerlayout.widget.DrawerLayout/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.RelativeLayout[6]/android.widget.TextView");
+    private final By trashButton = By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/androidx.drawerlayout.widget.DrawerLayout/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.RelativeLayout[7]/android.widget.TextView");
 
 
     WebDriverWait wait;
