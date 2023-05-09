@@ -9,9 +9,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class MenuBar extends BaseTests {
-
-    private final By hamburgerMenu = By.xpath("//android.widget.ImageButton[@content-desc=\"Navigate up\"]");
     private final By inboxPausedButton = By.xpath("(//android.widget.ImageView[@content-desc=\"pause now\"])[1]");
+    private final By inboxButton = By.xpath("(//*[@class=\"android.widget.TextView\"])[4]");
+    private final By sentButton = By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/androidx.drawerlayout.widget.DrawerLayout/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.RelativeLayout[4]/android.widget.TextView");
+    private final By draftButton = By.xpath("//android.widget.TextView[@bounds='[0,1239][1050,1382]']");
+    private final By spamButton = By.xpath("//android.widget.TextView[@bounds='[0,1382][1050,1525]']");
+    private final By trashButton = By.xpath("//android.widget.TextView[@bounds='[0,1525][1050,1668]']");
+
+
     WebDriverWait wait;
 
     public MenuBar() {
@@ -25,13 +30,33 @@ public class MenuBar extends BaseTests {
         driver.findElement(new AppiumBy.ByAndroidUIAutomator(uiAutomatorTextForSendFeedback)).click();
     }
 
-    public void openMenuBar() {
-        waitForElementPresent(hamburgerMenu);
-        driver.findElement(hamburgerMenu).click();
-    }
-
     public void clickInboxPauseButton() {
         waitForElementPresent(inboxPausedButton);
         driver.findElement(inboxPausedButton).click();
+    }
+
+    public void clickOnInboxButton() {
+        waitForElementPresent(inboxButton);
+        driver.findElement(inboxButton).click();
+    }
+
+    public void clickOnSentButton() {
+        waitForElementPresent(sentButton);
+        driver.findElement(sentButton).click();
+    }
+
+    public void clickOnDraftButton() {
+        waitForElementPresent(draftButton);
+        driver.findElement(draftButton).click();
+    }
+
+    public void clickOnSpamButton() {
+        waitForElementPresent(spamButton);
+        driver.findElement(spamButton).click();
+    }
+
+    public void clickOnTrashButton() {
+        waitForElementPresent(trashButton);
+        driver.findElement(trashButton).click();
     }
 }
