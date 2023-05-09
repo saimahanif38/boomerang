@@ -44,7 +44,7 @@ public class InboxPausedUnpausedSteps {
         }
     }
 
-    @And("Pause the inbox")
+    @Then("Pause the inbox")
     public void inboxPaused() {
         try {
             inboxPaused = new InboxPaused();
@@ -70,7 +70,7 @@ public class InboxPausedUnpausedSteps {
         }
     }
 
-    @And("Unpause the inbox")
+    @Then("Unpause the inbox")
     public void unpauseTheInbox() {
         try {
             inboxPaused = new InboxPaused();
