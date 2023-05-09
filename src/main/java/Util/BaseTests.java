@@ -24,9 +24,9 @@ public class BaseTests {
     public static void setup() throws MalformedURLException {
         DesiredCapabilities cap = new DesiredCapabilities();
         cap.setCapability("platformName", "android");
-        cap.setCapability("udid", "emulator-5554");
+        cap.setCapability("udid", "84b579bc");
         cap.setCapability("platformVersion", "9");
-        cap.setCapability("deviceName", "emulator-5554");
+        cap.setCapability("deviceName", "84b579bc");
         cap.setCapability("appPackage", "com.baydin.boomerang");
         cap.setCapability("app", "C:/Users/saimahanif/Downloads/boomerangandroid-prod-release.apk");
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
@@ -71,7 +71,7 @@ public class BaseTests {
 
     public void waitForElementPresent(By locator) {
         try {
-            this.wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+            this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
             wait.until(ExpectedConditions.presenceOfElementLocated(locator));
         } catch (Exception e) {
             System.out.println("Wait for an element" + locator.toString());
