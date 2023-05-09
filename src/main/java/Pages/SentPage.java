@@ -9,6 +9,7 @@ import java.time.Duration;
 
 public class SentPage extends BaseTests {
     private final By titleOfPage = By.xpath("(//*[@class=\"android.widget.TextView\"])[1]");
+    private final By topEmail = By.xpath("(//android.widget.TextView[@content-desc=\"subject\"])[1]");
 
     WebDriverWait wait;
 
@@ -20,5 +21,10 @@ public class SentPage extends BaseTests {
     public String getTitleOfPage() {
         waitForElementPresent(titleOfPage);
         return driver.findElement(titleOfPage).getText();
+    }
+
+    public void clickOnTopEmail(){
+        waitForElementPresent(topEmail);
+        driver.findElement(topEmail).click();
     }
 }
