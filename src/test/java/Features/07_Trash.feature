@@ -1,4 +1,4 @@
-Feature: Validating Functionality of Inbox Feature
+Feature: Trash Feature
 
   Scenario: To test trash box functionality
     Given Getting started with mobile app

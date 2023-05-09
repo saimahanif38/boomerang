@@ -1,4 +1,4 @@
-Feature: Validating Functionality of Sent Feature
+Feature: Sent Feature
 
   Scenario: To test Sent box functionality
     Given Getting started with mobile app

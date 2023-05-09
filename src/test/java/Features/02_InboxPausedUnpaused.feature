@@ -1,4 +1,4 @@
-Feature: Validating Functionality Inbox Paused And Unpause
+Feature: Inbox Paused And Unpause
 
   Scenario: To test inbox paused functionality
     Given Getting started with mobile app

@@ -1,4 +1,4 @@
-Feature: Validating Functionality of Spam Feature
+Feature: Spam Feature
 
   Scenario: To test Spam box functionality
     Given Getting started with mobile app

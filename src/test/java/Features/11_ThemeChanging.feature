@@ -1,6 +1,6 @@
 Feature: Settings
 
-  Scenario: Test login functionality with valid credentials using outlook
+  Scenario: Verify theme changing from settings
     Given Getting started with mobile app
     When Login with valid credentials Outlook
     And Complete Welcome Screen steps

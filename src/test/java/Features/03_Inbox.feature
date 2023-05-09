@@ -1,4 +1,4 @@
-Feature: Validating Functionality of Inbox Feature
+Feature: Inbox Feature
 
   Scenario: To test inbox functionality
     Given Getting started with mobile app

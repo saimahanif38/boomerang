@@ -1,4 +1,4 @@
-Feature: Validating Functionality of Draft Feature
+Feature: Draft Feature
 
   Scenario: To test Draft box functionality
     Given Getting started with mobile app

@@ -1,4 +1,4 @@
-Feature: Validating Functionality of Inbox Feature
+Feature: Compose Mail
 
   Scenario: To test user is able to open compose email
     Given Getting started with mobile app
