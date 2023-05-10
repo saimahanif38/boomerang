@@ -27,20 +27,12 @@ public class LoginSteps extends BaseTests {
         }
     }
 
-    @When("Login with valid credentials Outlook")
+    @When("Login with valid credentials using outlook")
     public void loginWithValidCredentials() {
         try {
             BaseTests.setEmailAndPassword();
             loginPage = new LoginPage();
             loginPage.loginUsingOutlook(BaseTests.email, BaseTests.password);
-        } catch (Exception exp) {
-            System.out.println(exp);
-        }
-    }
-
-    @And("Complete Welcome Screen steps")
-    public void movingFromWelcomeScreen() {
-        try {
             welcomePage = new WelcomePage();
             welcomePage.clickNextButton();
             welcomePage.clickFinishButton();
