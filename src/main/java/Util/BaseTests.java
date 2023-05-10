@@ -16,17 +16,18 @@ import java.util.Properties;
 public class BaseTests {
 
     public static AppiumDriver driver;
-    public static String email = "", password = "", receiverEmail = "", subject = "", emailBodyText="";
+    public static String email = "", password = "", receiverEmail = "", subject = "", emailBodyText="", autoResponderText;
     protected static String projectPath = System.getProperty("user.dir");
     public static String path = projectPath + "/resources/";
+    public static String filePath = path + "email.properties";
     WebDriverWait wait;
 
     public static void setup() throws MalformedURLException {
         DesiredCapabilities cap = new DesiredCapabilities();
         cap.setCapability("platformName", "android");
-        cap.setCapability("udid", "84b579bc");
+        cap.setCapability("udid", "emulator-5554");
         cap.setCapability("platformVersion", "9");
-        cap.setCapability("deviceName", "84b579bc");
+        cap.setCapability("deviceName", "emulator-5554");
         cap.setCapability("appPackage", "com.baydin.boomerang");
         cap.setCapability("app", "C:/Users/saimahanif/Downloads/boomerangandroid-prod-release.apk");
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
@@ -34,15 +35,16 @@ public class BaseTests {
     }
 
     public static void setEmailAndPassword() throws IOException {
-        FileReader reader = new FileReader(path + "email.properties");
+        FileReader reader = new FileReader(filePath);
         Properties prop = new Properties();
         prop.load(reader);
         email = prop.getProperty("email");
         password = prop.getProperty("password");
+        BaseTests.checkIfEmailAndPasswordIsEmpty(email, password);
     }
 
     public static String setReceiverEmail() throws IOException {
-        FileReader reader = new FileReader(path + "email.properties");
+        FileReader reader = new FileReader(filePath);
         Properties prop = new Properties();
         prop.load(reader);
         receiverEmail = prop.getProperty("receiverEmail");
@@ -50,7 +52,7 @@ public class BaseTests {
     }
 
     public static String setSubjectOfEmail() throws IOException {
-        FileReader reader = new FileReader(path + "email.properties");
+        FileReader reader = new FileReader(filePath);
         Properties prop = new Properties();
         prop.load(reader);
         subject = prop.getProperty("subjectOfEmail");
@@ -58,7 +60,7 @@ public class BaseTests {
     }
 
     public static String setBodyOfMail() throws IOException {
-        FileReader reader = new FileReader(path + "email.properties");
+        FileReader reader = new FileReader(filePath);
         Properties prop = new Properties();
         prop.load(reader);
         emailBodyText = prop.getProperty("emailBodyText");
@@ -77,6 +79,20 @@ public class BaseTests {
             System.out.println("Wait for an element" + locator.toString());
             e.printStackTrace();
 
+        }
+    }
+
+    public static String setAutoResponderText() throws IOException {
+        FileReader reader = new FileReader(filePath);
+        Properties prop = new Properties();
+        prop.load(reader);
+        autoResponderText = prop.getProperty("autoResponderMailText");
+        return autoResponderText;
+    }
+
+    public static void checkIfEmailAndPasswordIsEmpty(String email, String password){
+        if ((email == null) || (password == null)){
+            throw new IllegalArgumentException("Email or Password can not be null. Please enter email or password in resources/email.properties file");
         }
     }
 }
