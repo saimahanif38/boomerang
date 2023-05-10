@@ -6,31 +6,14 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import java.io.IOException;
+
 import static org.testng.Assert.assertEquals;
 
 public class InboxPausedUnpausedSteps {
-
-    protected LoginPage loginPage;
-    protected WelcomePage welcomePage;
     protected MenuBar menuBar;
-    protected InboxPaused inboxPaused;
+    protected InboxPaused inboxPaused = new InboxPaused();
     protected HomePage homePage;
-
-    @When("Login with valid credentials using outlook")
-    public void loginWithValidCredentials() {
-        try {
-            BaseTests.setEmailAndPassword();
-            BaseTests.setup();
-            loginPage = new LoginPage();
-            loginPage.loginUsingOutlook(BaseTests.email, BaseTests.password);
-            welcomePage = new WelcomePage();
-            welcomePage.clickNextButton();
-            welcomePage.clickFinishButton();
-            welcomePage.clickSaveThemeButton();
-        } catch (Exception exp) {
-            System.out.println(exp);
-        }
-    }
 
     @And("Go to the menu bar and inbox pause")
     public void goToMenuBar() {
@@ -44,10 +27,28 @@ public class InboxPausedUnpausedSteps {
         }
     }
 
+    @And("Change the auto-responder text")
+    public void changeTheAutoResponderText() throws IOException {
+        String text = BaseTests.setAutoResponderText();
+        inboxPaused.setAutoResponderText(text);
+    }
+
+    @And("Set the unpause automatically")
+    public void setTheUnpauseAutomatically() {
+        inboxPaused.clickOnUnpauseAutomaticallyToggle();
+        inboxPaused.clickOnAfter2Hour();
+        inboxPaused.setDate();
+        inboxPaused.setDay();
+        inboxPaused.clickOkButton();
+//        inboxPaused.clickOnClock();
+//        inboxPaused.setTime();
+//        inboxPaused.clickOkButton();
+        inboxPaused.clickOnSaveButton();
+    }
+
     @Then("Pause the inbox")
     public void inboxPaused() {
         try {
-            inboxPaused = new InboxPaused();
             inboxPaused.clickOnInboxPausedButton();
             inboxPaused.clickOnGotItButton();
         } catch (Exception exp) {
