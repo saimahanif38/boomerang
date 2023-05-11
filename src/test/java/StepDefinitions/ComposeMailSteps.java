@@ -25,15 +25,39 @@ public class ComposeMailSteps extends BaseTests {
         }
     }
 
-    @Then("Add text for email and add participants and validate success message")
-    public void addTextForEmail() throws IOException {
+    @And("Add meeting schedule, title, guests, description, and title")
+    public void addMeetingSchedule() throws IOException {
+        composeMailPage.clickOnCalendar();
+        composeMailPage.clickSuggestButton();
+        composeMailPage.setTitle(BaseTests.setTitleOfMeeting());
+        composeMailPage.addGuests(BaseTests.setGuests());
+        composeMailPage.clickOnDoneButton();
+        composeMailPage.suggestedTimesButton();
+        composeMailPage.clickOnDurationButton();
+        composeMailPage.clickOn25Minute();
+        composeMailPage.clickTime();
+        composeMailPage.clickOnDoneButton();
+        composeMailPage.setDescripton();
+        composeMailPage.clickCloseButton();
+    }
+
+    @And("Add text for email and add participants")
+    public void sendMail(){
         try{
             email = BaseTests.setReceiverEmail();
             subject = BaseTests.setSubjectOfEmail();
             emailBodyText = BaseTests.setBodyOfMail();
-            composeMailPage.sendLaterButtonExists();
             composeMailPage.typeReceiverEmail(email);
             composeMailPage.typeSubjectOfEmail(subject);
+        }
+        catch (Exception exp){
+            exp.printStackTrace();
+        }
+    }
+
+    @Then("Validate success message")
+    public void addTextForEmail() throws IOException {
+        try{
             composeMailPage.clickOnSendEmail();
             getSuccessMessage = composeMailPage.validateSucessMessage();
             assertEquals(getSuccessMessage, expectedSuccessMessage, "Success Message Validation failed!");
