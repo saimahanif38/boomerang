@@ -35,8 +35,11 @@ public class LoginSteps extends BaseTests {
             loginPage.loginUsingOutlook(BaseTests.email, BaseTests.password);
             welcomePage = new WelcomePage();
             welcomePage.clickNextButton();
+            Thread.sleep(1000);
             welcomePage.clickFinishButton();
+            Thread.sleep(1000);
             welcomePage.clickSaveThemeButton();
+            Thread.sleep(1000);
         } catch (Exception exp) {
             System.out.println(exp);
         }

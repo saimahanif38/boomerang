@@ -19,15 +19,15 @@ public class ComposeMailPage extends BaseTests {
     private final By calendarButton = By.id("com.baydin.boomerang:id/imgBtnBoomerang");
     private final By suggestButton = By.id("com.baydin.boomerang:id/compose_to_container");
     private final By title = By.id("com.baydin.boomerang:id/etTitle");
-    private final By addGuestButton = By.id("com.baydin.boomerang:id/layoutGuest");
+    private final By addGuestButton = By.id("com.baydin.boomerang:id/tvGuest");
     private final By guestEmail = By.id("com.baydin.boomerang:id/compose_to");
     private final By doneButton = By.id("com.baydin.boomerang:id/done");
     private final By suggestTimesButton = By.id("com.baydin.boomerang:id/layoutSuggestTime");
     private final By durationButton = By.id("com.baydin.boomerang:id/duration");
     private final By twentyFiveMin = By.id("com.baydin.boomerang:id/tv25Minutes");
-    private final By time = By.xpath("//*[@bounds='[0,736][1440,799]']");
+    private final By time = By.xpath("//*[@bounds='[0,562][1080,772]']");///"//*[@bounds='[0,669][1080,909]']");  [0,523][1080,733]  [0,736][1440,799]
     private final By addDescription = By.id("com.baydin.boomerang:id/etAddDescription");
-    private final By closeButton = By.id("com.baydin.boomerang:id/compose_close");
+    private final By closeButton = By.id("com.baydin.boomerang:id/insert");
 
     public ComposeMailPage() {
         PageFactory.initElements(driver, this);
@@ -76,7 +76,8 @@ public class ComposeMailPage extends BaseTests {
         driver.findElement(suggestButton).click();
     }
 
-    public void setTitle(String text){
+    public void setTitle(String text) throws InterruptedException {
+        Thread.sleep(4000);
         waitForElementPresent(title);
         driver.findElement(title).clear();
         driver.findElement(title).sendKeys(text);
@@ -89,9 +90,11 @@ public class ComposeMailPage extends BaseTests {
         driver.findElement(guestEmail).sendKeys(guestMail);
     }
 
-    public void clickOnDoneButton(){
+    public void clickOnDoneButton() throws InterruptedException {
+        Thread.sleep(2000);
         waitForElementPresent(doneButton);
         driver.findElement(doneButton).click();
+        Thread.sleep(2000);
     }
 
     public void suggestedTimesButton(){

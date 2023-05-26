@@ -21,6 +21,8 @@ public class InboxPaused extends BaseTests {
     private final By okButton = By.id("android:id/button1");
     private final By saveButton = By.id("com.baydin.boomerang:id/boomerang_confirm");
     private final By date = By.id("com.baydin.boomerang:id/boomerang_specific_date");
+    private final By topMail = By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/androidx.drawerlayout.widget.DrawerLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.RelativeLayout/android.widget.ListView/android.widget.RelativeLayout[1]");
+    private final By backButton = By.xpath("//android.widget.ImageButton[@content-desc=\"Navigate up\"]");
     WebDriverWait wait;
 
     public InboxPaused() {
@@ -59,11 +61,12 @@ public class InboxPaused extends BaseTests {
         driver.findElement(autoResponderText).sendKeys(text);
     }
 
-    public void clickOnUnpauseAutomaticallyToggle(){
+    public void clickOnUnpauseAutomaticallyToggle() throws InterruptedException {
+        Thread.sleep(3000);
         driver.findElement(unpauseAutomaticallyToggle).click();
     }
 
-    public void clickOnAfter2Hour(){
+    public void clickOnAfter2Hour() throws InterruptedException {
         driver.findElement(unpauseAutomaticallyText).click();
     }
 
@@ -73,7 +76,7 @@ public class InboxPaused extends BaseTests {
     }
 
     public void setTime(){
-        String uiAutomatorTextForMinutes = "new UiScrollable(new UiSelector().scrollable(true).index(2)).scrollIntoView(new UiSelector().textMatches(\"20\"))";
+        String uiAutomatorTextForMinutes = "new UiScrollable(new UiSelector().scrollable(true).index(2)).scrollIntoView(new UiSelector().textMatches(\"Jun\"))";
         driver.findElement(new AppiumBy.ByAndroidUIAutomator(uiAutomatorTextForMinutes)).click();
     }
 
@@ -83,7 +86,7 @@ public class InboxPaused extends BaseTests {
     }
 
     public void setDay(){
-        String uiAutomatorTextForDay = "new UiScrollable(new UiSelector().scrollable(true).index(1)).scrollIntoView(new UiSelector().textMatches(\"12\"))";
+        String uiAutomatorTextForDay = "new UiScrollable(new UiSelector().scrollable(true).index(1)).scrollIntoView(new UiSelector().textMatches(\"Jun\"))";
         driver.findElement(new AppiumBy.ByAndroidUIAutomator(uiAutomatorTextForDay)).click();
     }
 
@@ -95,5 +98,15 @@ public class InboxPaused extends BaseTests {
     public void clickOnSaveButton(){
         waitForElementPresent(saveButton);
         driver.findElement(saveButton).click();
+    }
+
+    public void openTopMail(){
+        waitForElementPresent(topMail);
+        driver.findElement(topMail).click();
+    }
+
+    public void clickOnBackButton(){
+        waitForElementPresent(backButton);
+        driver.findElement(backButton).click();
     }
 }

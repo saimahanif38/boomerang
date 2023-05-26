@@ -19,6 +19,16 @@ public class WelcomePage extends BaseTests {
     }
 
     public void clickNextButton() throws InterruptedException {
+        Thread.sleep(1000);
+        waitForElementPresent(nextButton);
+        driver.findElement(nextButton).click();
+        Thread.sleep(1000);
+        waitForElementPresent(nextButton);
+        driver.findElement(nextButton).click();
+        Thread.sleep(1000);
+        waitForElementPresent(nextButton);
+        driver.findElement(nextButton).click();
+        Thread.sleep(2000);
         waitForElementPresent(nextButton);
         driver.findElement(nextButton).click();
         Thread.sleep(1000);
@@ -30,23 +40,20 @@ public class WelcomePage extends BaseTests {
         Thread.sleep(1000);
         waitForElementPresent(nextButton);
         driver.findElement(nextButton).click();
+        Thread.sleep(2000);
         waitForElementPresent(nextButton);
         driver.findElement(nextButton).click();
         Thread.sleep(1000);
-        waitForElementPresent(nextButton);
-        driver.findElement(nextButton).click();
-        waitForElementPresent(nextButton);
-        driver.findElement(nextButton).click();
-        waitForElementPresent(nextButton);
-        driver.findElement(nextButton).click();
     }
 
-    public void clickFinishButton() {
+    public void clickFinishButton() throws InterruptedException {
+        Thread.sleep(2000);
         waitForElementPresent(finishButton);
         driver.findElement(finishButton).click();
     }
 
-    public void clickSaveThemeButton() {
+    public void clickSaveThemeButton() throws InterruptedException {
+        Thread.sleep(2000);
         waitForElementPresent(saveThemeButton);
         driver.findElement(saveThemeButton).click();
     }

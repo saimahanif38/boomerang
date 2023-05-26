@@ -6,4 +6,4 @@ Feature: Compose Mail
     And Click on compose email button and compose email screen is appeared
     And Add text for email and add participants
     And Add meeting schedule, title, guests, description, and title
-    Then Validate success message
+    And Validate success message
